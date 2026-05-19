@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://haripreeth-thota.vercel.app/sitemap.xml
+
+# Specific pages
+Allow: /
+Allow: /index.html
+Allow: /images/
+Allow: /favicon.svg
+
+# Block unnecessary files
+Disallow: /src/
+Disallow: /*.json
+Disallow: /*.ts
+Disallow: /*.tsx
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /.git/
