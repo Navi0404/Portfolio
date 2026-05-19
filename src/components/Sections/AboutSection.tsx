@@ -186,7 +186,7 @@ const AboutSection: React.FC = () => {
             </div>
 
             <a
-              href="https://drive.google.com/file/d/1su8aMoY4W7QZ3Yly6JEdDidHF8eTL2pg/view?usp=sharing"
+              href="https://drive.google.com/file/d/1dMnzbJSXRrbyUeEmtfdnmzuHKHqxvXl_/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
