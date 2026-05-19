@@ -92,7 +92,7 @@ export const projects: Project[] = [
     id: 3,
     title: 'TravelRemind.ai',
     description: 'TravelRemind.ai delivers an AI-powered resort analytics dashboard that transforms travel data into smart insights and actionable decisions.',
-    image: 'public/images/TR.png',
+    image: '/images/TR.png',
     tags: ['WordPress', 'Construction', 'Real Estate', 'SEO', 'Mobile Responsive'],
     demoUrl: 'https://travelremindai.com/',
     category: 'Artificial Intelligence',

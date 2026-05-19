@@ -56,7 +56,7 @@ const Preloader: React.FC = () => {
 
       {/* AI GIF Logo */}
       <motion.img
-        src="public/images/ai animation.gif"
+        src="/images/ai animation.gif"
         alt="AI Logo"
         className="relative w-24 h-24 object-contain z-10 drop-shadow-[0_0_30px_rgba(59,130,246,0.9)]"
         animate={{
