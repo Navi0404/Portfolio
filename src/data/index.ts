@@ -8,7 +8,7 @@ export const navLinks: NavLink[] = [
   { name: 'Projects', href: '#projects' },
   { name: 'Experience', href: '#experience' },
   { name: 'Contact', href: '#contact' },
-  { name: 'Resume', href: 'https://drive.google.com/file/d/1JZBtNCW-y5aBCyn8V6qRo_lbVtI-OngG/view?usp=sharing', target: '_blank' },
+  { name: 'Resume', href: 'https://drive.google.com/file/d/1IUsBBSbTFPX1XUHcmd-aw0fLwR_ZHrhP/view?usp=sharing', target: '_blank' },
 ];
 
 export const socialLinks: SocialLink[] = [

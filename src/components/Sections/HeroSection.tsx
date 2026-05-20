@@ -116,6 +116,7 @@ const HeroSection: React.FC = () => {
       {/* Main Content */}
       <div className="container-custom relative z-10 flex-grow flex items-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center w-full">
+          {/* Left Column - Text Content */}
           <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -142,7 +143,7 @@ const HeroSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              I’m a passionate AI developer focused on building intelligent and engaging applications with modern technologies and clean, efficient code.
+              I'm a passionate AI developer focused on building intelligent and engaging applications with modern technologies and clean, efficient code.
             </motion.p>
             
             <motion.div
@@ -186,8 +187,47 @@ const HeroSection: React.FC = () => {
               </div>
             </motion.div>
           </div>
-          
-        
+
+          {/* Right Column - Hero Image */}
+          <motion.div
+            className="hidden lg:flex justify-center items-center"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            <div className="relative">
+              {/* Glowing background ring */}
+              <motion.div
+                className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary-400 to-secondary-500 opacity-20 blur-3xl"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              {/* Rotating border ring */}
+              <motion.div
+                className="absolute -inset-4 rounded-2xl border-2 border-dashed border-primary-300 dark:border-primary-600 opacity-40"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              />
+
+              {/* Image container */}
+              <motion.div
+                className="relative w-72 h-72 md:w-80 md:h-80 xl:w-96 xl:h-96 rounded-2xl overflow-hidden border-4 border-white dark:border-gray-700 shadow-2xl"
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img
+                  src="/images/Ai.png"
+                  alt="AI Developer"
+                  className="w-full h-full object-cover"
+                />
+                {/* Subtle overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent" />
+              </motion.div>
+
+              
+            </div>
+          </motion.div>
         </div>
       </div>
       
