@@ -87,7 +87,7 @@ const ContactSection: React.FC = () => {
         phone: `${formState.countryCode} ${formState.phone}`,
         subject: formState.subject,
         message: formState.message,
-        to_name: 'Haripreeth Thota',
+        to_name: 'G Navinash',
       };
 
       await emailjs.send(

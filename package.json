@@ -3,16 +3,17 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Portfolio website of Haripreeth Thota - Software Engineer & Web Developer",
+  "description": "Portfolio website of G Navinash - Artificial Intelligence Engineer",
   "keywords": [
     "portfolio",
     "react",
     "typescript",
     "web developer",
     "software engineer",
-    "haripreeth thota"
+    "G Navinash",
+    "artificial intelligence",
   ],
-  "author": "Haripreeth Thota <haripreeththota@gmail.com>",
+  "author": "G Navinash <navinashconnect@gmail.com>",
   "homepage": "https://haripreeth-thota.vercel.app/",
   "scripts": {
     "dev": "vite",
