@@ -141,7 +141,7 @@ const AboutSection: React.FC = () => {
             <div className="relative">
               <div className="w-full aspect-video rounded-lg overflow-hidden shadow-md">
                 <img 
-                  src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  src="/images/clients.jpg"
                   alt="Haripreeth working"
                   className="w-full h-full object-cover"
                 />
