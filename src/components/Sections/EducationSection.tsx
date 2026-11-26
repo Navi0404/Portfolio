@@ -1,103 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { School, Zap, Cpu } from 'lucide-react';
 import { education } from '../../data';
-import EducationCard from '../UI/EducationCard';
+import EducationCard, { EducationStop } from '../UI/EducationCard';
+
+const split = (s: string) => s.split(',').map((p) => p.trim());
+
+// Oldest first.
+const stopIcons = [School, Zap, Cpu];
+const stops: EducationStop[] = [
+  ...[...education].reverse().map((e, i) => {
+    const [place, location] = split(e.institution);
+    const tag = /ssc|secondary/i.test(e.degree) ? 'School' : /diploma/i.test(e.degree) ? 'Diploma · EEE' : 'Degree · EEE';
+    return { key: `edu-${e.id}`, period: e.duration.replace(/\s*-\s*/, ' – '), title: e.degree, place, location, tag, Icon: stopIcons[i] ?? Cpu };
+  }),
+];
 
 const EducationSection: React.FC = () => {
   return (
-    <section id="education" className="section-padding bg-gray-50 dark:bg-gray-800/50 relative overflow-hidden">
-      {/* Left Side Pattern */}
-      <motion.div 
-        className="absolute left-0 top-0 h-full w-32 opacity-5 dark:opacity-10 pointer-events-none"
-        animate={{ 
-          y: [0, 30, 0],
-          x: [0, 10, 0]
-        }}
-        transition={{ 
-          duration: 12, 
-          repeat: Infinity, 
-          ease: "easeInOut" 
-        }}
-      >
-        <svg className="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="education-pattern-left" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="2" fill="currentColor" className="text-primary-500" />
-              <path d="M5 10 L15 10 M10 5 L10 15" stroke="currentColor" strokeWidth="0.5" className="text-primary-500" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#education-pattern-left)" />
-        </svg>
-      </motion.div>
-
-      {/* Right Side Pattern */}
-      <motion.div 
-        className="absolute right-0 top-0 h-full w-32 opacity-5 dark:opacity-10 pointer-events-none"
-        animate={{ 
-          y: [0, -30, 0],
-          x: [0, -10, 0]
-        }}
-        transition={{ 
-          duration: 14, 
-          repeat: Infinity, 
-          ease: "easeInOut" 
-        }}
-      >
-        <svg className="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="education-pattern-right" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="2" fill="currentColor" className="text-primary-500" />
-              <path d="M5 10 L15 10 M10 5 L10 15" stroke="currentColor" strokeWidth="0.5" className="text-primary-500" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#education-pattern-right)" />
-        </svg>
-      </motion.div>
-      
-      {/* Floating Academic Elements */}
-      <motion.div 
-        className="absolute top-20 left-10 w-16 h-16 opacity-10 dark:opacity-20 pointer-events-none"
-        animate={{ 
-          y: [0, -20, 0],
-          rotate: [0, 12, 0]
-        }}
-        transition={{ 
-          duration: 6, 
-          repeat: Infinity, 
-          ease: "easeInOut" 
-        }}
-      >
-        <div className="w-full h-full bg-primary-500 rounded-lg transform rotate-12"></div>
-      </motion.div>
-      <motion.div 
-        className="absolute bottom-20 right-10 w-12 h-12 opacity-10 dark:opacity-20 pointer-events-none"
-        animate={{ 
-          y: [0, 20, 0],
-          scale: [1, 1.3, 1]
-        }}
-        transition={{ 
-          duration: 5, 
-          repeat: Infinity, 
-          ease: "easeInOut" 
-        }}
-      >
-        <div className="w-full h-full bg-secondary-500 rounded-full"></div>
-      </motion.div>
-      <motion.div 
-        className="absolute top-1/2 right-20 w-8 h-8 opacity-10 dark:opacity-20 pointer-events-none"
-        animate={{ 
-          rotate: [0, 45, 90, 135, 180, 225, 270, 315, 360],
-          scale: [1, 1.2, 1]
-        }}
-        transition={{ 
-          duration: 8, 
-          repeat: Infinity, 
-          ease: "linear" 
-        }}
-      >
-        <div className="w-full h-full bg-accent-500 transform rotate-45"></div>
-      </motion.div>
-      
+    <section id="education" className="section-padding bg-gray-50/70 dark:bg-gray-800/25 relative overflow-hidden">
       <div className="container-custom relative z-10">
         <motion.div 
           className="text-center mb-16"
@@ -109,14 +30,24 @@ const EducationSection: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Education</h2>
           <div className="w-20 h-1.5 bg-primary-500 mx-auto rounded-full mb-6"></div>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            My academic journey and educational background that shaped my career.
+            From circuits to neural circuits: an Electrical &amp; Electronics foundation that led me to AI.
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {education.map((edu, index) => (
-            <EducationCard key={edu.id} education={edu} index={index} />
-          ))}
+        <div className="relative max-w-5xl mx-auto">
+          {/* the trace: horizontal on desktop, vertical on mobile, with a current pulse flowing along it */}
+          <div className="hidden lg:block absolute top-5 left-[16.67%] right-[16.67%] h-0.5 bg-gray-300 dark:bg-gray-700 overflow-hidden" aria-hidden="true">
+            <span className="edu-pulse-x absolute inset-y-0 w-32 bg-gradient-to-r from-transparent via-primary-400 to-transparent" />
+          </div>
+          <div className="lg:hidden absolute top-5 bottom-5 left-[19px] w-0.5 bg-gray-300 dark:bg-gray-700 overflow-hidden" aria-hidden="true">
+            <span className="edu-pulse-y absolute inset-x-0 h-24 bg-gradient-to-b from-transparent via-primary-400 to-transparent" />
+          </div>
+
+          <ol className="relative grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-8">
+            {stops.map((stop, index) => (
+              <EducationCard key={stop.key} stop={stop} index={index} />
+            ))}
+          </ol>
         </div>
       </div>
     </section>

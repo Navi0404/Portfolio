@@ -4,9 +4,10 @@ import {
   Phone,
   Moon,
   Sun,
+  FileText,
 } from 'lucide-react';
 
-import { socialLinks } from '../../data';
+import { socialLinks, profile } from '../../data';
 import SocialIcon from '../UI/SocialIcon';
 
 const TopBar: React.FC = () => {
@@ -61,7 +62,7 @@ const TopBar: React.FC = () => {
 
             {/* Email */}
             <a
-              href="mailto:navinashconnect@gmail.com"
+              href={`mailto:${profile.email}`}
               className="
                 flex items-center
                 space-x-3
@@ -73,13 +74,13 @@ const TopBar: React.FC = () => {
               <Mail size={18} />
 
               <span className="font-medium tracking-wide">
-                navinashconnect@gmail.com
+                {profile.email}
               </span>
             </a>
 
             {/* Phone */}
             <a
-              href="tel:+91-9121933278"
+              href={`tel:${profile.phone}`}
               className="
                 flex items-center
                 space-x-3
@@ -91,8 +92,30 @@ const TopBar: React.FC = () => {
               <Phone size={18} />
 
               <span className="font-medium tracking-wide">
-                +91-9121933278
+                {profile.phone}
               </span>
+            </a>
+
+            {/* Resume */}
+            <a
+              href={profile.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex items-center gap-2
+                rounded-full
+                border border-primary-500/60
+                bg-primary-500/10
+                px-4 py-1.5
+                text-sm font-semibold
+                text-primary-700 dark:text-primary-300
+                hover:bg-primary-500 hover:text-white hover:border-primary-500
+                focus:outline-none focus:ring-2 focus:ring-blue-500/50
+                transition-colors duration-200
+              "
+            >
+              <FileText size={16} />
+              View Resume
             </a>
 
           </div>

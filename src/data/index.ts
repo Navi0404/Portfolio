@@ -1,4 +1,7 @@
-import { Project, Skill, NavLink, SocialLink, Experience, Service, Education } from '../types';
+import { Project, SkillDomain, NavLink, SocialLink, Experience, Service, Education } from '../types';
+
+// Latest resume (Google Drive). Used by the top bar, header, About section and the "Ask me" bot.
+export const RESUME_URL = 'https://drive.google.com/drive/folders/1jTcRS1HGxHTG5EWqGQb0ra7lqWCl2mYe?usp=sharing';
 
 export const navLinks: NavLink[] = [
   { name: 'Home', href: '#home' },
@@ -8,7 +11,7 @@ export const navLinks: NavLink[] = [
   { name: 'Projects', href: '#projects' },
   { name: 'Experience', href: '#experience' },
   { name: 'Contact', href: '#contact' },
-  { name: 'Resume', href: 'https://drive.google.com/file/d/1IUsBBSbTFPX1XUHcmd-aw0fLwR_ZHrhP/view?usp=sharing', target: '_blank' },
+  { name: 'Resume', href: RESUME_URL, target: '_blank' },
 ];
 
 export const socialLinks: SocialLink[] = [
@@ -34,39 +37,57 @@ export const socialLinks: SocialLink[] = [
   },
 ];
 
-export const skills: Skill[] = [
-
-
-  {name:'HTML', icon:'html', level:90, category:'frontend'},
-  {name:'CSS', icon:'css', level:85, category:'frontend'},
-  {name:'JavaScript', icon:'javascript', level:90, category:'frontend'},
-  { name: 'React', icon: 'react', level: 85, category: 'frontend' },
-  { name: 'TypeScript', icon: 'typescript', level: 80, category: 'frontend' },
-  { name: 'Tailwind CSS', icon: 'tailwind', level: 80, category: 'frontend' },
-
-
-  { name: 'Python', icon: 'python', level: 85, category: 'backend' },
-  { name: 'PostgreSQL', icon: 'postgresql', level: 70, category: 'backend' },
-  { name: 'MongoDB', icon: 'mongodb', level: 75, category: 'backend' },
-  { name: 'FastAPI', icon: 'fastapi', level: 70, category: 'backend' },
-  { name: 'Flask', icon: 'flask', level: 65, category: 'backend' },
-  
-
-
-  { name: 'Machine Learning', icon: 'Machine Learning', level: 85, category: 'ai' },
-  { name: 'Deep Learning', icon: 'Deep Learning', level: 80, category: 'ai' },
-  { name: 'Computer Vision', icon: 'Computer Vision', level: 80, category: 'ai' },
-  { name: 'Reinforcement Learning', icon: 'Reinforcement Learning', level: 75, category: 'ai' },
-  { name: 'Generative AI', icon: 'Generative AI', level: 85, category: 'ai' },
-  { name: 'Embeddings & Vector Stores', icon: 'Transformers', level: 80, category: 'ai' },
-  { name: 'Natural Language Processing', icon: 'NLP', level: 85, category: 'ai' },
-  { name: 'Multi-Agent Systems', icon: 'Multi-Agent Systems', level: 80, category: 'ai' },
-  { name: 'Agentic AI', icon: 'Agentic AI', level: 85, category: 'ai' },
-  { name: 'RAG', icon: 'RAG', level: 90, category: 'ai' },
-
-  { name: 'Git', icon: 'git', level: 85, category: 'other' },
-  { name: 'Docker', icon: 'docker', level: 70, category: 'other' },
-  { name: 'CI/CD', icon: 'cicd', level: 75, category: 'other' },
+export const skillDomains: SkillDomain[] = [
+  {
+    name: 'Gen AI & LLM',
+    icon: 'genai',
+    skills: ['RAG', 'CAG', 'Vector Search', 'Similarity Search', 'Vector Embeddings', 'Prompt Engineering', 'Retrieval', 'Semantic Search', 'Conversational AI', 'Observability', 'Evaluation', 'Guardrails'],
+  },
+  {
+    name: 'Agents & Orchestration',
+    icon: 'agents',
+    skills: ['LangChain', 'LangGraph', 'Tool Calling', 'MCP', 'A2A', 'Multi-Agent Systems', 'Agentic Workflows'],
+  },
+  {
+    name: 'AI Coding & Dev Tools',
+    icon: 'tools',
+    skills: ['Claude Code', 'Cursor', 'Antigravity', 'Codex', 'OpenCode', 'OpenClaw', 'Hermes Agent'],
+  },
+  {
+    name: 'LLM Fine-tuning',
+    icon: 'finetune',
+    skills: ['LoRA', 'QLoRA', 'PEFT'],
+  },
+  {
+    name: 'Programming Languages',
+    icon: 'code',
+    skills: ['Python', 'HTML', 'CSS', 'JavaScript', 'React', 'SQL', 'NoSQL'],
+  },
+  {
+    name: 'Machine Learning',
+    icon: 'ml',
+    skills: ['Regression', 'Classification', 'Model Evaluation', 'Model Selection', 'EDA', 'Feature Engineering'],
+  },
+  {
+    name: 'Knowledge Graphs & Databases',
+    icon: 'database',
+    skills: ['Neo4j', 'Pinecone', 'pgvector', 'Qdrant', 'Milvus', 'ChromaDB', 'Knowledge Graphs', 'Taxonomy', 'SQL Server', 'MongoDB', 'PostgreSQL', 'Redis'],
+  },
+  {
+    name: 'Backend & APIs',
+    icon: 'backend',
+    skills: ['FastAPI', 'REST APIs', 'SQLAlchemy', 'Microservices & Schedulers', 'Pydantic', 'RBAC', 'JWT', 'Auth'],
+  },
+  {
+    name: 'Observability & Monitoring',
+    icon: 'observability',
+    skills: ['Langfuse', 'LangSmith', 'TruLens', 'RAGAS', 'DeepEval', 'Metrics & Traces', 'Token Monitoring', 'Cost Calculation'],
+  },
+  {
+    name: 'DevOps & Deployment',
+    icon: 'devops',
+    skills: ['Docker', 'Git', 'GitHub', 'GitLab', 'Bitbucket', 'Model Deployment', 'Railway', 'Render', 'Vercel', 'Cloudflare', 'Supabase'],
+  },
 ];
 
 export const projects: Project[] = [
@@ -155,28 +176,46 @@ export const services: Service[] = [
     id: 1,
     title: 'AI & Agentic Systems',
     description:
-      'Designing intelligent AI solutions including multi-agent systems and agentic AI to solve complex real-world problems and enhance user experiences.',
-    icon: 'code',
+      'Multi-agent systems and agentic workflows that plan, call tools and take action, grounded with RAG and built for production.',
+    icon: 'agents',
+    tags: ['LangGraph', 'MCP', 'RAG', 'A2A'],
   },
   {
     id: 2,
     title: 'Computer Vision & Machine Learning',
     description:
-      'Building and deploying machine learning and computer vision models for image understanding, object detection, and predictive intelligence.',
-    icon: 'layout',
+      'Models for image understanding, object detection and prediction, from EDA and feature engineering to evaluation and deployment.',
+    icon: 'vision',
+    tags: ['Deep Learning', 'Detection', 'Model Evaluation'],
   },
   {
     id: 3,
     title: 'Web Development',
     description:
-      'Creating responsive, high-performance, and scalable web applications with modern frontend and backend technologies.',
-    icon: 'smartphone',
+      'Fast, responsive web apps with React front ends that make AI products simple to use.',
+    icon: 'web',
+    tags: ['React', 'JavaScript', 'HTML & CSS', 'Vercel'],
   },
   {
     id: 4,
     title: 'API & Backend Development',
     description:
-      'Developing secure, scalable, and high-performance APIs for seamless system integration and data exchange.',
-    icon: 'server',
+      'Secure, scalable APIs and microservices with auth, RBAC and schedulers, ready for production traffic.',
+    icon: 'api',
+    tags: ['FastAPI', 'Pydantic', 'JWT', 'Docker'],
   },
 ];
+// Shared by the Contact section and the "Ask me" bot.
+export const profile = {
+  name: 'G Navinash',
+  title: 'AI Developer & Team Lead',
+  location: 'Hyderabad, Telangana, India',
+  email: 'navinashconnect@gmail.com',
+  phone: '+91-9121933278',
+  resumeUrl: RESUME_URL,
+  yearsOfExperience: '4+',
+  summary:
+    "I'm an AI Engineer with 4+ years of experience building intelligent, production-ready applications. I specialize in Agentic AI, Multi-Agent Systems, RAG and MCP, and I care about clean, maintainable code.",
+  availability:
+    'Ready to contribute to challenging projects involving AI development, backend systems, and scalable applications.',
+};

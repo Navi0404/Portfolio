@@ -134,3 +134,70 @@
 .flex.flex-col.md\:flex-row.justify-between.items-center.space-y-2.md\:space-y-0 {
     align-items: end !important;
 }
+/* Signal pulse travelling along an edge of the About section's agent pipeline (paths use pathLength=100). */
+@keyframes pipeline-pulse {
+  0% { stroke-dashoffset: 10; }
+  12% { stroke-dashoffset: -100; }
+  100% { stroke-dashoffset: -100; }
+}
+.pipeline-pulse {
+  stroke-dasharray: 10 100;
+  stroke-dashoffset: 10;
+  animation: pipeline-pulse 4s linear infinite;
+  filter: drop-shadow(0 0 3px rgba(59, 130, 246, 0.8));
+}
+
+/* ---------- Solutions cards: mini live demos ---------- */
+/* Base styles are the resting state, so with animations off everything is still visible. */
+@keyframes svc-ring {
+  0% { r: 16; opacity: 0.8; }
+  100% { r: 30; opacity: 0; }
+}
+.svc-ring { animation: svc-ring 2s ease-out infinite; }
+
+@keyframes svc-scan {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(9rem); opacity: 0; }
+}
+.svc-scan { animation: svc-scan 3s linear infinite; }
+
+@keyframes svc-box {
+  0%, 25% { opacity: 0; transform: scale(1.08); }
+  35%, 90% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1); }
+}
+.svc-box { animation: svc-box 3s ease-out infinite; }
+
+@keyframes svc-build {
+  0% { transform: scaleX(0); opacity: 0; }
+  12%, 85% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+.svc-build { animation: svc-build 3.5s cubic-bezier(0.19, 1, 0.22, 1) infinite both; }
+
+@keyframes svc-log {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+.svc-log { animation: svc-log 9s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-anim { animation: none !important; }
+}
+
+/* ---------- Education circuit: current pulse along the trace ---------- */
+@keyframes edu-pulse-x {
+  from { left: -8rem; }
+  to { left: 100%; }
+}
+@keyframes edu-pulse-y {
+  from { top: -6rem; }
+  to { top: 100%; }
+}
+.edu-pulse-x { animation: edu-pulse-x 3.2s linear infinite; }
+.edu-pulse-y { animation: edu-pulse-y 3.2s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .edu-pulse-x, .edu-pulse-y { animation: none; display: none; }
+}

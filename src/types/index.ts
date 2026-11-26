@@ -1,19 +1,18 @@
-// export interface Project {
-//   id: number;
-//   title: string;
-//   description: string;
-//   image: string;
-//   tags: string[];
-//   demoUrl?: string;
-//   codeUrl?: string;
-//   category: 'Artificial Intelligence' | 'backend' | 'fullstack' | 'mobile' | 'design';
-// }
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  demoUrl?: string;
+  codeUrl?: string;
+  category: 'Artificial Intelligence' | 'backend' | 'fullstack' | 'mobile' | 'design';
+}
 
-export interface Skill {
+export interface SkillDomain {
   name: string;
   icon: string;
-  level: number;
-  category: 'ai' | 'frontend' | 'backend' | 'other';
+  skills: string[];
 }
 
 export interface NavLink {
@@ -50,4 +49,5 @@ export interface Service {
   title: string;
   description: string;
   icon: string;
+  tags: string[];
 }
